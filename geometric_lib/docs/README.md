@@ -109,9 +109,21 @@ Returns perimiter of a square with side `a`
 8
 ```
 
-# Changelog
+# Tests
+`class TestGeometryFunctions(unittest.TestCase)`
 
-- `` Add docs and comments
+Returns how many tests program passed.
+
+```
+> python -m unittest tests.py
+Ran 8 tests in 0.000s
+
+OK
+```
+
+# Changelog
+- `3db259a30bab855ad60f90e5a3876d70ecfeaa97` added tests, all files merged in one
+- `aaccb2ef63b75faab9c6cf7aa9d3276af21fad52` Add docs and comments
 - `3259b24e776F2950edb2f33f27a8af93167bc219` Fixed bag in rectangle.py
 - `71b29fb058cc703a34b863d9a3F114217932a088` Add triangle.py
 - `546295218a7827230a3208b465b35a8aa4075b31` Add rectangle.py
