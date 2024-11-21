@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest, windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: testprog
+        run: |
+          python /geometric_lib/tests.py
+          echo Hello from tests
