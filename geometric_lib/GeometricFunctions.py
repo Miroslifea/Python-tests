@@ -14,7 +14,7 @@ def circlePerimeter(r):
         raise TypeError("Радиус должен быть числом.")
     if r < 0:
         raise ValueError("Радиус не может быть отрицательным.")
-    return 2 * math.pi * r
+    return math.pi * r
 
 def rectangleArea(a, b):
     '''Принимает 2 числа, a и b. a - первая сторона прямоугольника, b - вторая сторона прямоугольника. Возвращает площадь прямоугольника.'''
