@@ -116,7 +116,7 @@ Returns how many tests program passed.
 
 ```
 > python -m unittest tests.py
-Ran 8 tests in 0.000s
+Ran 22 tests in 0.000s
 
 OK
 ```
