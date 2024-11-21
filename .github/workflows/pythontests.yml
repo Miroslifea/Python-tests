@@ -17,5 +17,5 @@ jobs:
 
       - name: testprog
         run: |
-          python /geometric_lib/tests.py
+          python tests.py
           echo Hello from tests
