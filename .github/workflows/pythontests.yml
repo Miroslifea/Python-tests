@@ -1,21 +1,36 @@
-name: CI
+name: Python Tests
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
-
-  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest, windows-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: [3.8, 3.9]
+    runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: testprog
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
         run: |
-          python tests.py
-          echo Hello from tests
+          python -m pip install --upgrade pip
+          # Если у вас есть файл requirements.txt
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run tests
+        run: |
+          python -m unittest geometric_lib/tests.py
