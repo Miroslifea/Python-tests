@@ -3,14 +3,17 @@ name: Run Python Tests
 on:
   push:
     branches:
-      - main
+      - main 
   pull_request:
     branches:
-      - main
+      - main 
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest] 
+    runs-on: ${{ matrix.os }}
 
     steps:
     - name: Checkout code
@@ -19,7 +22,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11'
+        python-version: '3.11' 
 
     - name: Install dependencies
       run: |
